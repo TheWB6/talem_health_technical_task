@@ -6,7 +6,7 @@
                 style="max-width: 20rem;"
                 class="mb-2"
             >
-                <img :src="user.avatar_url" alt="">
+                <img :src="user.avatar_url" alt="" style="width: 250px">
                 <b-button :href=user.html_url target="_blank" variant="primary">
                     View Profile
                 </b-button>
