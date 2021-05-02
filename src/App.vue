@@ -1,18 +1,49 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <b-form @submit="onSubmit">
+      <b-form-group id="input-group-2" label="Your Github User Name:" label-for="input-2">
+        <b-form-input
+          id="input-2"
+          v-model="form.userName"
+          placeholder="Enter User Name"
+          required
+        ></b-form-input>
+      </b-form-group>
+      <b-button type="submit" variant="primary">Submit</b-button>
+    </b-form>
+    <GithubUser :gitHubUser="gitHubUser" />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import GithubUser from './components/GithubUser.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+    GithubUser
+  },
+  data() {
+    return {
+      form: {
+        userName: ''
+      },
+      gitHubUser: []
+    }
+  },
+  methods: {
+    async onSubmit(event) {
+      event.preventDefault()
+      this.gitHubUser = await this.fetchGithubUser(this.form.userName)
+    },
+    async fetchGithubUser(userName='thewb6') {
+      const res = await fetch(`https://api.github.com/search/users?q=${userName}`)
+
+      const data = await res.json()
+      console.log(data)
+      return data.items
+    }
+  },
 }
 </script>
 
