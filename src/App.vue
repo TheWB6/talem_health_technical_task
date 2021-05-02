@@ -3,7 +3,7 @@
     <b-form @submit="onSubmit">
       <b-form-group id="input-group-2" label="Your Github User Name:" label-for="input-2">
         <b-form-input
-          id="input-2"
+          id="input-2"  
           v-model="form.userName"
           placeholder="Enter User Name"
           required
@@ -21,7 +21,7 @@ import GithubUser from './components/GithubUser.vue'
 export default {
   name: 'App',
   components: {
-    GithubUser
+    GithubUser,
   },
   data() {
     return {
@@ -55,5 +55,14 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+#input-group-2 > div {
+  display: flex;
+  justify-content: center;
+}
+
+#input-2 {
+  width: 50%;
 }
 </style>

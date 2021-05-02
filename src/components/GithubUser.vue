@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id="userCard">
         <div :key="user.id" v-for="user in gitHubUser">
             <b-card
                 :title=user.login
@@ -18,9 +18,17 @@
 <script>
 
 export default {
-    name: 'GitHub',
+    name: 'GithubUser',
     props: {
         gitHubUser: Array
     },
 }
 </script>
+
+<style scoped>
+    #userCard > :first-child {
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+    }
+</style>
