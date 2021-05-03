@@ -1,7 +1,10 @@
 # vue-bootstrap-example
+## Talem Health Technical Task
 
 ## Project setup
 ```
+git clone https://github.com/TheWB6/talem_health_technical_task.git
+cd talem_health_technical_task
 npm install
 ```
 
@@ -10,15 +13,7 @@ npm install
 npm run serve
 ```
 
-### Compiles and minifies for production
+### Run tests
 ```
-npm run build
+npm run test
 ```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
