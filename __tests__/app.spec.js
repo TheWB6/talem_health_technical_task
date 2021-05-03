@@ -2,7 +2,7 @@ import { mount } from '@vue/test-utils'
 import { BButton, BForm, BFormGroup, BFormInput } from 'bootstrap-vue';
 import App from '../src/App.vue'
 
-// Make sure App is loading
+// App is loading with data
 describe('App', () => {
     it('has data', () => {
         expect(typeof App.data).toBe('function')

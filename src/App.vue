@@ -11,18 +11,27 @@
       </b-form-group>
       <b-button type="submit" variant="primary">Submit</b-button>
     </b-form>
-    <GithubUser :gitHubUser="gitHubUser" />
+    <div id="userCard">
+      <div :key="user.id" v-for="user in gitHubUser">
+          <b-card
+            :title=user.login
+            style="max-width: 20rem;"
+            class="mb-2"
+          >
+            <img :src="user.avatar_url" alt="" style="width: 250px">
+            <b-button :href=user.html_url target="_blank" variant="primary">
+                View Profile
+            </b-button>
+          </b-card>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import GithubUser from './components/GithubUser.vue'
 
 export default {
   name: 'App',
-  components: {
-    GithubUser,
-  },
   data() {
     return {
       form: {
@@ -64,5 +73,11 @@ export default {
 
 #input-2 {
   width: 50%;
+}
+
+#userCard > :first-child {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
 }
 </style>
